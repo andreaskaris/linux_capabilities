@@ -1,9 +1,11 @@
 .PHONY: ambient
 ambient:
+	mkdir -p bin
 	go build -o bin/ambient cmd/ambient/main.go
 
 .PHONY: http
 http:
+	mkdir -p bin
 	go build -o bin/http cmd/http/main.go
 
 .PHONY: build
