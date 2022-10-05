@@ -19,3 +19,11 @@ build: ambient http setcap
 .PHONY: set-cap-example
 set-cap-example:
 	sudo setcap "cap_net_bind_service+p cap_chown+p" bin/ambient
+
+.PHONY: build-container
+build-container:
+	podman build -t caps container/.
+
+.PHONY: run-container
+run-container:
+	podman run --rm --name caps -ti caps /bin/bash
